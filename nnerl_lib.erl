@@ -97,8 +97,8 @@ list_to_zlist(L) when is_list(L) -> {nnerl_lib, zlist, [], L}.
 -spec zlist_to_list(zlist()) -> list().
 zlist_to_list({nnerl_lib, zlist, Pre, Post}) -> lists:reverse(Pre) ++ Post.
 
--spec zcurrent(zlist()) -> term().
-zcurrent({nnerl_lib, zlist, _, [Current|_]}) -> Current.
+-spec zat(zlist()) -> term().
+zat({nnerl_lib, zlist, _, [Current|_]}) -> Current.
 
 -spec zprev(zlist()) -> zlist().
 zprev({nnerl_lib, zlist, [H|T], Post}) -> {nnerl_lib, zlist, T, [H|Post]}.
@@ -109,9 +109,9 @@ znext({nnerl_lib, zlist, Pre, [H|T]}) -> {nnerl_lib, zlist, [H|Pre], T}.
 -spec zset(term(), zlist()) -> zlist().
 zset(Value, {nnerl_lib, zlist, Pre, [_|Post]}) -> {nnerl_lib, zlist, Pre, [Value|Post]}.
 
--spec zinsert(term(), zlist()) -> zlist().
-zinsert(Value, {nnerl_lib, zlist, Pre, Post}) -> {nnerl_lib, zlist, Pre, [Value|Post]}.
+-spec zins(term(), zlist()) -> zlist().
+zins(Value, {nnerl_lib, zlist, Pre, Post}) -> {nnerl_lib, zlist, Pre, [Value|Post]}.
 
--spec zdelete(zlist()) -> zlist().
-zdelete({nnerl_lib, zlist, Pre, [_|Post]}) -> {nnerl_lib, zlist, Pre, Post}.
+-spec zdel(zlist()) -> zlist().
+zdel({nnerl_lib, zlist, Pre, [_|Post]}) -> {nnerl_lib, zlist, Pre, Post}.
 
